@@ -68,6 +68,7 @@ var retrieveUsers = function(args) {
   }
 }
 
+// Updates a single user
 var updateUser = function({id, name, age}) {
   users.map(user => {
     if (user.id === id) {
@@ -88,8 +89,8 @@ var root = {
 
 var app = express();
 app.use('/graphql', graphqlHTTP({
-  schema: schema,  // Must be provided
+  schema: schema,
   rootValue: root,
-  graphiql: true,  // Enable GraphiQL when server endpoint is accessed in browser
+  graphiql: true,
 }));
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
